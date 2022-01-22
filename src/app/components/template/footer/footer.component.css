@@ -1,0 +1,21 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer .btn-github {
+    display: flex;
+}
+
+.footer .btn-github .icon-github {
+    margin-right: 5px;
+}
+
+.footer .btn-github span {
+    font-size: 14px;
+    color: #fff;
+}
+

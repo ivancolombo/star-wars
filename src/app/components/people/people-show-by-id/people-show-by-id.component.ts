@@ -43,7 +43,10 @@ export class PeopleShowByIdComponent implements OnInit {
       const filmId = getId(urlFilm);
       this.filmService.getById(filmId).subscribe(film => {
         filmsArr.push(film);
-        this.endAwaitFilms = true;
+
+        if (films.length === filmsArr.length) {          
+          this.endAwaitFilms = true;
+        }
       });
     });
     this.films = filmsArr;   

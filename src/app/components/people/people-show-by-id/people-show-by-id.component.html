@@ -20,12 +20,14 @@
                 </ng-template>
             </div>
         </mat-card-content>
-        <mat-card-footer>
-            <button mat-stroked-button color="primary" routerLink="/peoples">Return</button>
-        </mat-card-footer>
     </div>
     <ng-template #progressSpinner class="spinner">
         <mat-progress-spinner diameter="40" mode="indeterminate" color="primary" value="40">
         </mat-progress-spinner>
     </ng-template>
+    <mat-card-footer>
+        <button mat-stroked-button color="primary" routerLink="/peoples">
+            <mat-icon>keyboard_return</mat-icon>
+        </button>
+    </mat-card-footer>
 </mat-card>

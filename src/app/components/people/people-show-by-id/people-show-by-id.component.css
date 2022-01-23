@@ -1,0 +1,13 @@
+mat-card {    
+    margin: 40px;
+    padding: 40px;
+}
+
+mat-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+p {
+    margin: 0 0 5px;
+}

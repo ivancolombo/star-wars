@@ -18,6 +18,7 @@ export class PeopleShowAllComponent implements OnInit {
   totalPeoples = 0;
   page = 1;
   pageSizeOptions: number[] = [10]
+  endAwait: boolean = false;
   
   constructor(
     private peopleService: PeopleService, 
@@ -32,17 +33,19 @@ export class PeopleShowAllComponent implements OnInit {
     this.peopleService.getAll(page, name).subscribe(response => {
       this.peoples = response.results;     
       this.totalPeoples = response.count;
+      this.endAwait = true;
     });
   }
 
   paginate(event: PageEvent): void {
+    this.endAwait = false;
     this.page = event.pageIndex + 1;
     this.list(this.page);
   }
 
   search() {
     const name = (<HTMLInputElement>document.getElementById("search")).value;
-    
+    this.endAwait = false;
     this.page = 1;
     this.list(this.page, name);
   }

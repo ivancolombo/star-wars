@@ -1,19 +1,31 @@
 <mat-card class="mat-elevation-z4">
-    <mat-card-title>
-        {{ people.name }}
-    </mat-card-title>
-    <mat-card-content>        
-        <p>Birth year: {{ people.birth_year }}</p>
-        <p>Gender: {{ people.gender }}</p>
-        <p>Eye color: {{ people.eye_color }}</p>
-        Films:
-        <ul>
-            <li *ngFor="let film of films">
-               Title: {{ film.title }} - Release date: {{ film.release_date }}
-            </li>
-        </ul>
-    </mat-card-content>
-    <mat-card-footer>
-        <button mat-stroked-button color="primary" routerLink="/peoples">Return</button>
-    </mat-card-footer>
+    <div *ngIf="endAwait;else progressSpinner">
+        <mat-card-title>
+            {{ people.name }}
+        </mat-card-title>
+        <mat-card-content>
+            <p>Birth year: {{ people.birth_year }}</p>
+            <p>Gender: {{ people.gender }}</p>
+            <p>Eye color: {{ people.eye_color }}</p>
+            <div>
+                <p>Films:</p>
+                <ul *ngIf="endAwaitFilms;else progressSpinnerFilms">
+                    <li *ngFor="let film of films">
+                        Title: {{ film.title }} - Release date: {{ film.release_date }}
+                    </li>
+                </ul>
+                <ng-template #progressSpinnerFilms class="spinner">
+                    <mat-progress-spinner diameter="40" mode="indeterminate" color="primary" value="40">
+                    </mat-progress-spinner>
+                </ng-template>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+            <button mat-stroked-button color="primary" routerLink="/peoples">Return</button>
+        </mat-card-footer>
+    </div>
+    <ng-template #progressSpinner class="spinner">
+        <mat-progress-spinner diameter="40" mode="indeterminate" color="primary" value="40">
+        </mat-progress-spinner>
+    </ng-template>
 </mat-card>

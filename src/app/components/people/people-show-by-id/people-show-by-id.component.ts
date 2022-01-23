@@ -15,6 +15,8 @@ export class PeopleShowByIdComponent implements OnInit {
 
   people: People;
   films: Film[];
+  endAwait: boolean = false;
+  endAwaitFilms: boolean = false;
 
   constructor(
     private peopleService: PeopleService,
@@ -31,6 +33,7 @@ export class PeopleShowByIdComponent implements OnInit {
     this.peopleService.getById(id).subscribe(people => {
       this.people = people;
       this.getFilms(this.people.films);
+      this.endAwait = true;
     });
   }
 
@@ -40,6 +43,7 @@ export class PeopleShowByIdComponent implements OnInit {
       const filmId = getId(urlFilm);
       this.filmService.getById(filmId).subscribe(film => {
         filmsArr.push(film);
+        this.endAwaitFilms = true;
       });
     });
     this.films = filmsArr;   

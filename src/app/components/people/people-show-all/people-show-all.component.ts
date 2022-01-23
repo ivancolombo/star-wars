@@ -3,6 +3,7 @@ import { People } from './../../../models/people.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { getId } from 'src/app/helpers/get-id';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-people-show-all',
@@ -12,6 +13,11 @@ import { getId } from 'src/app/helpers/get-id';
 export class PeopleShowAllComponent implements OnInit {
 
   peoples: People[];
+  displayedColumns = ["name", "action"];
+
+  totalPeoples = 0;
+  page = 1;
+  pageSizeOptions: number[] = [10]
   
   constructor(
     private peopleService: PeopleService, 
@@ -19,9 +25,26 @@ export class PeopleShowAllComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.peopleService.getAll().subscribe(response => {
+    this.list(this.page);
+  }
+
+  list(page: number, name: string = ''): void {
+    this.peopleService.getAll(page, name).subscribe(response => {
       this.peoples = response.results;     
+      this.totalPeoples = response.count;
     });
+  }
+
+  paginate(event: PageEvent): void {
+    this.page = event.pageIndex + 1;
+    this.list(this.page);
+  }
+
+  search() {
+    const name = (<HTMLInputElement>document.getElementById("search")).value;
+    
+    this.page = 1;
+    this.list(this.page, name);
   }
 
   redirect(url: string): void {

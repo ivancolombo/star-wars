@@ -23,6 +23,10 @@ export class PeopleShowByIdComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.list();
+  }
+
+  list(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.peopleService.getById(id).subscribe(people => {
       this.people = people;

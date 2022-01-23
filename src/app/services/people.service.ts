@@ -1,5 +1,5 @@
 import { PeopleRequest } from './../models/people.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { People } from '../models/people.model';
@@ -13,8 +13,11 @@ export class PeopleService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<PeopleRequest> {
-    return this.http.get<PeopleRequest>(this.baseUrl);
+  getAll(page: number, name?: string): Observable<PeopleRequest> {
+    const params = new HttpParams()
+      .set('page', page)
+      .set('search', name ?? '');
+    return this.http.get<PeopleRequest>(`${this.baseUrl}?${params.toString()}`);
   }
 
   getById(id: string | null): Observable<People> {

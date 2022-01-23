@@ -12,6 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { PeopleShowAllComponent } from './components/people/people-show-all/people-show-all.component';
 import { PeopleShowByIdComponent } from './components/people/people-show-by-id/people-show-by-id.component';
 
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +34,15 @@ import { PeopleShowByIdComponent } from './components/people/people-show-by-id/p
     BrowserAnimationsModule,
     MatToolbarModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

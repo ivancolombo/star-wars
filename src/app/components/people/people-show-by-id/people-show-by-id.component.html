@@ -1,0 +1,11 @@
+<p>Nome: {{ people.name }}</p>
+<p>Ano de nascimento: {{ people.birth_year }}</p>
+<p>Genero: {{ people.gender }}</p>
+<p>Cor dos olhos: {{ people.eye_color }}</p>
+Filmes:
+    <ul>
+        <li *ngFor="let film of films">
+            {{ film.title }}
+        </li>
+    </ul>
+

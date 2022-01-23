@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let people of peoples">
+        <a (click)="redirect(people.url)">{{ people.name }}</a>
+    </li>
+</ul>

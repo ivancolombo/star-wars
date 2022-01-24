@@ -2,3 +2,35 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.v-middle {
+    vertical-align: middle;
+}
+
+.content {
+    max-width: 900px;
+    height: 86vh;
+    margin: 0 auto;
+    padding: 7vh 0;
+}
+
+.msg-error {
+    background-color: #e35e6b;
+    color: #fff;
+}
+
+.card {    
+    margin: 20px;
+    padding: 40px!important;
+}
+
+mat-progress-spinner {
+    margin: 0 auto;
+}
+
+@media (max-width: 576px){
+    .card {    
+        margin: 10px;
+        padding: 20px!important;
+    }    
+}

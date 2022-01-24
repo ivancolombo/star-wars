@@ -14,6 +14,7 @@ import { getId } from 'src/app/helpers/get-id';
 export class PeopleShowByIdComponent implements OnInit {
 
   people: People;
+  displayedColumns = ["title", "release_date"];
   films: Film[];
   endAwait: boolean = false;
   endAwaitFilms: boolean = false;

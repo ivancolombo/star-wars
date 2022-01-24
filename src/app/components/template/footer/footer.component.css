@@ -4,6 +4,7 @@
     background-color: #000;
     display: flex;
     justify-content: flex-end;
+    height: 7vh;
 }
 
 .footer .btn-github {

@@ -33,16 +33,16 @@ export class PeopleService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro!', true);
+    this.showMessage('Ocorreu um erro!');
     return EMPTY;
   }
 
-  showMessage(msg: string, isError: boolean = false): void {
+  showMessage(msg: string): void {
     this.snackBar.open(msg, 'X', {
       duration: 3000,
       horizontalPosition: "right",
       verticalPosition: "top",
-      panelClass: isError ? ['msg-error'] : ['msg-success']
+      panelClass: ['msg-error']
     });
   }
 }
